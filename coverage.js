@@ -50,34 +50,41 @@ function checkCoverageValues() {
         var branches = results[1];
         var functions = results[2];
         var lines = results[3];
-        var name = null;
+        var name = (statements, branches, functions, lines);
         var score = null;
-
-        if (statements < min_statementes) {
-            name = 'statements';
-            score = statements;
-        }
-        if (branches < min_branches) {
-            name = 'branches';
-            score = branches;
-        }
-        if (functions < min_functions) {
-            name = 'functions';
-            score = functions;
-        }
-        if (lines < min_lines) {
-            name = 'lines';
-            score = lines;
-        }
 
         if (name) {
             return reject(name + ' coverage does not suffice ' + score + "%");
         }
 
-        console.log("\n\n************************************************\n");
-        console.log('Congratulations! Your test coverage if sufficient');
-        console.log("\n************************************************\n\n");
-
+        displaySuccess();
         return resolve();
     })
+}
+
+function checkScores(statements, branches, functions, lines) {
+    var name = null;
+    if (statements < min_statementes) {
+        name = 'statements';
+        score = statements;
+    }
+    if (branches < min_branches) {
+        name = 'branches';
+        score = branches;
+    }
+    if (functions < min_functions) {
+        name = 'functions';
+        score = functions;
+    }
+    if (lines < min_lines) {
+        name = 'lines';
+        score = lines;
+    }
+    return name;
+}
+
+function displaySuccess() {
+    console.log("\n\n************************************************\n");
+    console.log('Congratulations! Your test coverage if sufficient');
+    console.log("\n************************************************\n\n");
 }

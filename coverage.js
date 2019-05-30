@@ -50,11 +50,10 @@ function checkCoverageValues() {
         var branches = results[1];
         var functions = results[2];
         var lines = results[3];
-        var name = (statements, branches, functions, lines);
-        var score = null;
+        var result = checkScores(statements, branches, functions, lines);
 
         if (name) {
-            return reject(name + ' coverage does not suffice ' + score + "%");
+            return reject(result.name + ' coverage does not suffice ' + result.score + "%");
         }
 
         displaySuccess();
@@ -63,24 +62,24 @@ function checkCoverageValues() {
 }
 
 function checkScores(statements, branches, functions, lines) {
-    var name = null;
+    var results = {};
     if (statements < min_statementes) {
-        name = 'statements';
-        score = statements;
+        results.name = 'statements';
+        results.score = statements;
     }
     if (branches < min_branches) {
-        name = 'branches';
-        score = branches;
+        results.name = 'branches';
+        results.score = branches;
     }
     if (functions < min_functions) {
-        name = 'functions';
-        score = functions;
+        results.name = 'functions';
+        results.score = functions;
     }
     if (lines < min_lines) {
-        name = 'lines';
-        score = lines;
+        results.name = 'lines';
+        results.score = lines;
     }
-    return name;
+    return results;
 }
 
 function displaySuccess() {

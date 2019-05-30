@@ -1,5 +1,5 @@
 var fs = require('fs');
-var COVERAGE_FILE = 'coverage/frontend/index.html';
+var COVERAGE_FILE = 'coverage/index.html';
 var results = []
 var min_statementes = 100;
 var min_branches = 100;

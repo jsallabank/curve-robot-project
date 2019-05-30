@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, isDevMode } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,8 @@ export class LoginPage implements OnInit {
   public password: string;
   public loggedIn = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
@@ -19,6 +20,10 @@ export class LoginPage implements OnInit {
   public login() {
     this.loggedIn = true;
     console.log('Logged in.');
+    const devmode = isDevMode() ? 'true' : 'false';
+    const message = `Something bad happened ${devmode}`;
+    console.log(message);
+    throw new Error(message);
   }
 
 }

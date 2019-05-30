@@ -52,7 +52,7 @@ function checkCoverageValues() {
         var lines = results[3];
         var result = checkScores(statements, branches, functions, lines);
 
-        if (name) {
+        if (result.name) {
             return reject(result.name + ' coverage does not suffice ' + result.score + "%");
         }
 

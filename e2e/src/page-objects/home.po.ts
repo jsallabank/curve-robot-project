@@ -1,11 +1,11 @@
 import { PageObjectBase } from './base.po';
 
 export class HomePage extends PageObjectBase {
-    constructor() {
-        super('app-home', '/home');
-    }
+  constructor() {
+    super('app-home', '/home');
+  }
 
-    clickNextPage() {
-        this.clickButtonById('next-page-button');
-    }
+  clickNextPage() {
+    this.clickButtonById('next-page-button');
+  }
 }

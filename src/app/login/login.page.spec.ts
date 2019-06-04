@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormBuilder } from '@angular/forms';
 import { LoginPage } from './login.page';
 
 describe('LoginPage', () => {
@@ -11,6 +11,9 @@ describe('LoginPage', () => {
     TestBed.configureTestingModule({
       declarations: [LoginPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [
+        FormBuilder
+      ],
     })
     .compileComponents();
   }));

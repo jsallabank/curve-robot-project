@@ -1,4 +1,6 @@
-import { Component, OnInit, isDevMode } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PasswordValidator } from '../validators/password.validator';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,12 @@ export class LoginPage implements OnInit {
   public password: string;
   public loggedIn = false;
 
-  constructor() {
+  public loginForm: FormGroup = this.formBuilder.group({
+    email: [null, [Validators.required, Validators.email]],
+    password: [null, [Validators.required, Validators.minLength(8), PasswordValidator.strong]]
+  });
+
+  constructor(public formBuilder: FormBuilder) {
   }
 
   ngOnInit() {

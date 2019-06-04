@@ -18,12 +18,6 @@ export class LoginPage implements OnInit {
   }
 
   public login() {
-    this.loggedIn = true;
-    console.log('Logged in.');
-    const devmode = isDevMode() ? 'true' : 'false';
-    const message = `Something bad happened ${devmode}`;
-    console.log(message);
-    throw new Error(message);
   }
 
 }

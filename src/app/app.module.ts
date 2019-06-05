@@ -10,6 +10,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import * as Sentry from '@sentry/browser';
+import { AlertProvider } from './providers/alert/alert';
+import { AuthenticationProvider } from './providers/authentication/authentication';
+import { FormProvider } from './providers/form/form';
 
 const isDevModeOn = isDevMode();
 
@@ -20,7 +23,7 @@ Sentry.init({
 
 @Injectable()
 export class SentryErrorHandler implements ErrorHandler {
-  constructor() {}
+  constructor() { }
   handleError(error) {
     const eventId = Sentry.captureException(error.originalError || error);
     Sentry.showReportDialog({ eventId });
@@ -33,10 +36,13 @@ export class SentryErrorHandler implements ErrorHandler {
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
     { provide: ErrorHandler, useClass: isDevModeOn ? ErrorHandler : SentryErrorHandler },
+    AlertProvider,
+    AuthenticationProvider,
+    FormProvider,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

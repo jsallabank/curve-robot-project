@@ -50,7 +50,9 @@ export class FormProvider {
   }
 
   public checkStrength(errors: any) {
-    if (errors.strong) { this.errors.push(`Password is not strong enough. Please include capital and lower case letters, numbers and special characters.`); }
+    if (errors.strong) {
+      this.errors.push(`Password is not strong enough. Please include capital and lower case letters, numbers and special characters.`);
+    }
   }
 
   public checkOnlySpace(errors: any, prettyKey: string) {

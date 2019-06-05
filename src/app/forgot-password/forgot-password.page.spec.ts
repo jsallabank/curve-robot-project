@@ -1,18 +1,18 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginPage } from './login.page';
 import { FormProvider } from '../providers/form/form';
+import { ForgotPasswordPage } from './forgot-password.page';
 import { IonicModule } from '@ionic/angular';
 import { RouterTestingModule } from '@angular/router/testing';
 
-describe('LoginPage', () => {
-  let component: LoginPage;
-  let fixture: ComponentFixture<LoginPage>;
+describe('ForgotPasswordPage', () => {
+  let component: ForgotPasswordPage;
+  let fixture: ComponentFixture<ForgotPasswordPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LoginPage],
+      declarations: [ForgotPasswordPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         FormProvider
@@ -28,9 +28,8 @@ describe('LoginPage', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginPage);
+    fixture = TestBed.createComponent(ForgotPasswordPage);
     component = fixture.componentInstance;
-    component.ngOnInit();
     fixture.detectChanges();
   });
 
@@ -38,12 +37,12 @@ describe('LoginPage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should login', () => {
-    expect(component.login()).toBeTruthy();
+  it('should reset password', () => {
+    expect(component.reset()).toBeTruthy();
   });
 
   it('should validate', () => {
     component.validate();
-    expect(component.errors.length).toBe(3);
+    expect(component.errors.length).toBe(1);
   });
 });

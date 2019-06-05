@@ -10,11 +10,8 @@ import { FormProvider } from '../providers/form/form';
 })
 export class LoginPage implements OnInit {
 
-  public email: string;
-  public password: string;
   public loggedIn = false;
   public errors: any = [];
-
   public loginForm: FormGroup;
 
   constructor(public formBuilder: FormBuilder, public form: FormProvider) {

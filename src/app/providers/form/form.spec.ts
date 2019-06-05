@@ -56,6 +56,11 @@ describe('FormProvider', () => {
     expect(provider.errors.length).toBe(1);
   });
 
+  it('should return email message', () => {
+    provider.checkEmail({ email: true }, 'test');
+    expect(provider.errors.length).toBe(1);
+  });
+
   it('should return space only message', () => {
     provider.checkOnlySpace({ space: true }, 'test');
     expect(provider.errors.length).toBe(1);

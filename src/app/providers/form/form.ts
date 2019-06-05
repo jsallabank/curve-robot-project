@@ -10,6 +10,7 @@ export class FormProvider {
   }
 
   public validate(controls) {
+    this.errors = [];
     Object.keys(controls).forEach((key) => {
       const prettyKey = key.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/_/g, ' ').replace(/(?:^|\s)\S/g, l => l.toUpperCase());
       if (controls[key].errors != null) {
@@ -19,6 +20,7 @@ export class FormProvider {
         this.checkDate(controls[key].errors, prettyKey);
         this.checkPattern(controls[key].errors, prettyKey);
         this.checkStrength(controls[key].errors);
+        this.checkEmail(controls[key].errors, prettyKey);
         this.checkOnlySpace(controls[key].errors, prettyKey);
       }
     });
@@ -57,6 +59,10 @@ export class FormProvider {
 
   public checkOnlySpace(errors: any, prettyKey: string) {
     if (errors.space) { this.errors.push(`Please fill out the ${prettyKey} with a valid text.`); }
+  }
+
+  public checkEmail(errors: any, prettyKey: string) {
+    if (errors.email) { this.errors.push(`Please enter a valid ${prettyKey}.`); }
   }
 
 }

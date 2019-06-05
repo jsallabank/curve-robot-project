@@ -6,16 +6,23 @@
 
 <ion-content>
     <div class="vertical-center ion-padding-horizontal" text-center>
-        <ion-item>
-            <ion-label position="stacked">Email</ion-label>
-            <ion-input type="email" [(ngModel)]="email" id="email"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label position="stacked">Password</ion-label>
-            <ion-input type="password" [(ngModel)]="password" id="password"></ion-input>
-        </ion-item>
+        <form [formGroup]="loginForm">
+            <ion-item>
+                <ion-label position="stacked">Email</ion-label>
+                <ion-input type="email" formControlName="email" id="email"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="stacked">Password</ion-label>
+                <ion-input type="password" formControlName="password" id="password"></ion-input>
+            </ion-item>
+        </form>
+        <div class="error" *ngIf="errors.length > 0">
+            <ul>
+                <li *ngFor="let error of errors">{{error}}</li>
+            </ul>
+        </div>
         <div class="ion-padding-vertical">
-            <ion-button color="primary" (click)="login()">
+            <ion-button color="primary" (click)="validate()">
                 Login
             </ion-button>
         </div>

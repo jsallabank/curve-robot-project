@@ -1,7 +1,9 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginPage } from './login.page';
+import { FormProvider } from '../providers/form/form';
+import { IonicModule } from '@ionic/angular';
 
 describe('LoginPage', () => {
   let component: LoginPage;
@@ -12,7 +14,12 @@ describe('LoginPage', () => {
       declarations: [LoginPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
-        FormBuilder
+        FormProvider
+      ],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        IonicModule
       ],
     })
     .compileComponents();
@@ -21,6 +28,7 @@ describe('LoginPage', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginPage);
     component = fixture.componentInstance;
+    component.ngOnInit();
     fixture.detectChanges();
   });
 
@@ -30,5 +38,10 @@ describe('LoginPage', () => {
 
   it('should login', () => {
     expect(component.login()).toBeTruthy();
+  });
+
+  it('should validate', () => {
+    component.validate();
+    expect(component.errors.length).toBe(3);
   });
 });

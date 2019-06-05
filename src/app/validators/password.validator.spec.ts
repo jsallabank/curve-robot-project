@@ -9,12 +9,11 @@ describe('PasswordValidator', () => {
     expect(PasswordValidator).toBeTruthy();
   });
 
-  it('should validate if password is strong and return null', () => {
+  it('should validate if password is strong and return invalid', () => {
     const control: any = {};
     control.value = 'bbb';
     const validation = PasswordValidator.strong(control);
-    console.log(validation);
-    expect(validation).toBeNull();
+    expect(validation).toBeTruthy();
   });
 
   it('should validate if password is strong and return null', () => {
@@ -22,7 +21,7 @@ describe('PasswordValidator', () => {
     control.value = 'Bbb1!';
     const validation = PasswordValidator.strong(control);
     console.log(validation);
-    expect(validation.strong).toBeTruthy();
+    expect(validation).toBeNull();
   });
 
 });

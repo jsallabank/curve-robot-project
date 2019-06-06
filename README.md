@@ -22,3 +22,13 @@ This is a start project for ionic
 * `npm test`: To execute unit test
 * `npm run e2e`: To run end to end test
 * `npm run coverage`: To find out coverage of the unit test
+
+## Before start building
+
+* Rename name in ionic.config.json
+* Edit the Sentry DSN in src\app\app.module.ts
+
+## Addding the Android/iOS
+
+* ionic platform add ios
+* ionic platform add android

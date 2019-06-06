@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PasswordValidator } from '../validators/password.validator';
 import { FormProvider } from '../providers/form/form';
+import { StringValidator } from '../validators/string.validator';
 
 
 @Component({
@@ -22,8 +23,8 @@ export class RegisterPage implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(8), PasswordValidator.strong]],
       confirmPassword: [null, []],
-      firstName: [null, [Validators.required, Validators.maxLength(50)]],
-      lastName: [null, [Validators.required, Validators.maxLength(50)]]
+      firstName: [null, [Validators.required, Validators.maxLength(50), StringValidator.empty]],
+      lastName: [null, [Validators.required, Validators.maxLength(50), StringValidator.empty]]
     });
   }
 

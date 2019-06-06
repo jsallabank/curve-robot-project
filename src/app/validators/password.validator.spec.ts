@@ -13,7 +13,7 @@ describe('PasswordValidator', () => {
     const control: any = {};
     control.value = 'bbb';
     const validation = PasswordValidator.strong(control);
-    expect(validation).toBeTruthy();
+    expect(validation.strong).toBeTruthy();
   });
 
   it('should validate if password is strong and return null', () => {

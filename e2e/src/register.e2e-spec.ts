@@ -1,8 +1,6 @@
-import { App } from './page-objects/app.po';
 import { RegisterPage } from './page-objects/register.po';
 
 describe('RegisterPage', () => {
-  const app = new App();
   let register = new RegisterPage();
 
   beforeEach(() => {

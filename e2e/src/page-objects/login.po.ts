@@ -16,4 +16,12 @@ export class LoginPage extends PageObjectBase {
   clickLogin() {
     this.clickButtonById('loginButton');
   }
+
+  clickRegister() {
+    this.clickButtonById('registerButton');
+  }
+
+  clickForgotPassword() {
+    this.clickButtonById('forgotPasswordButton');
+  }
 }

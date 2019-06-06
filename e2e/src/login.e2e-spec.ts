@@ -1,4 +1,5 @@
 import { LoginPage } from './page-objects/login.po';
+import { HomePage } from './page-objects/home.po';
 
 describe('LoginPage', () => {
   let login = new LoginPage();
@@ -23,5 +24,13 @@ describe('LoginPage', () => {
     login.waitUntilVisible();
     login.clickLogin();
     expect(login.getElement('errors').isDisplayed()).toEqual(true);
+  });
+
+  it('should navigate from home page to login page', () => {
+    const home = new HomePage();
+    home.load();
+    home.clickNextPage();
+    login.waitUntilVisible();
+    expect(login.rootElement().isDisplayed()).toEqual(true);
   });
 });

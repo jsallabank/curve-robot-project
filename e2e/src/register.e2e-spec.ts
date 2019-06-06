@@ -1,4 +1,5 @@
 import { RegisterPage } from './page-objects/register.po';
+import { LoginPage } from './page-objects/login.po';
 
 describe('RegisterPage', () => {
   let register = new RegisterPage();
@@ -26,5 +27,23 @@ describe('RegisterPage', () => {
     register.waitUntilVisible();
     register.clickRegister();
     expect(register.getElement('errors').isDisplayed()).toEqual(true);
+  });
+
+  it('should navigate from login page to register page', () => {
+    const login = new LoginPage();
+    login.load();
+    login.clickRegister();
+    register.waitUntilVisible();
+    expect(register.rootElement().isDisplayed()).toEqual(true);
+  });
+
+  it('should navigate back to login page', () => {
+    const login = new LoginPage();
+    login.load();
+    login.clickRegister();
+    login.waitUntilVisible();
+    register.clickBackButton();
+    login.waitUntilVisible();
+    expect(login.rootElement().isDisplayed()).toEqual(true);
   });
 });

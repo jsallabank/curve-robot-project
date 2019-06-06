@@ -30,7 +30,7 @@ export class LoginPage implements OnInit {
   }
 
   public login() {
-    console.log(this.loginForm);
+    console.error('Add your function here');
     return true;
   }
 

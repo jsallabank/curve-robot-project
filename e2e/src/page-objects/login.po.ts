@@ -13,4 +13,8 @@ export class LoginPage extends PageObjectBase {
   enterPassword(text: string) {
     this.enterInputTextById('password', text);
   }
+
+  clickLogin() {
+    this.clickButtonById('loginButton');
+  }
 }

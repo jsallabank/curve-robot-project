@@ -1,6 +1,6 @@
 import { LoginPage } from './page-objects/login.po';
 
-describe('HomePage', () => {
+describe('LoginPage', () => {
   let login = new LoginPage();
 
   beforeEach(() => {
@@ -19,4 +19,9 @@ describe('HomePage', () => {
     // Add expectation
   });
 
+  it('should display error messages', () => {
+    login.waitUntilVisible();
+    login.clickLogin();
+    expect(login.getElement('errors').isDisplayed()).toEqual(true);
+  });
 });

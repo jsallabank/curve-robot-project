@@ -16,20 +16,27 @@
                 <ion-input type="password" formControlName="password" id="password"></ion-input>
             </ion-item>
         </form>
-        <div class="error" *ngIf="errors.length > 0">
+        <div class="error" *ngIf="errors.length > 0" id="errors">
             <ul>
                 <li *ngFor="let error of errors">{{error}}</li>
             </ul>
         </div>
         <div class="ion-padding-vertical">
-            <ion-button color="primary" (click)="validate()">
+            <ion-button color="primary" (click)="validate()" id="loginButton">
                 Login
             </ion-button>
-        </div>     
+        </div>
         <div class="ion-padding-vertical">
-            <ion-button color="primary" routerLink="/forgot-password" routerDirection="forward">
-                Forgot Password
-            </ion-button>
+            <div>
+                <ion-button color="primary" routerLink="/register" routerDirection="forward">
+                    Register
+                </ion-button>
+            </div>
+            <div>
+                <ion-button color="primary" routerLink="/forgot-password" routerDirection="forward">
+                    Forgot Password
+                </ion-button>
+            </div>
         </div>
     </div>
 </ion-content>

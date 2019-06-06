@@ -28,7 +28,7 @@ export class ForgotPasswordPage implements OnInit {
   }
 
   public reset() {
-    console.log(this.forgotForm);
+    console.error('Add your function here');
     return true;
   }
 

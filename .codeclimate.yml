@@ -2,3 +2,5 @@ exclude_patterns:
 - "src/karma.conf.js"
 - "e2e/*"
 - "**/*spec.ts"
+- "**/connect.ts"
+- "**/form.ts"

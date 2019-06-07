@@ -1,4 +1,4 @@
 exclude_patterns:
 - "src/karma.conf.js"
 - "e2e/*"
-- "*.spec.ts*"
+- "**/*spec.ts"

@@ -1,21 +1,21 @@
-import { AlertProvider } from './alert';
+import { AlertService } from './alert.service';
 
-describe('AlertProvider', () => {
-  let provider: AlertProvider;
+describe('AlertService', () => {
+  let service: AlertService;
   let alertCtrlSpy: { create: jasmine.Spy };
 
   beforeEach(() => {
     alertCtrlSpy = jasmine.createSpyObj('alertCtrl', ['create']);
-    provider = new AlertProvider(alertCtrlSpy as any);
+    service = new AlertService(alertCtrlSpy as any);
   });
 
   it('should create', () => {
-    expect(provider).toBeTruthy();
+    expect(service).toBeTruthy();
   });
 
   it('should present alert', (done) => {
-    const spy = spyOn(provider, 'present');
-    provider.presentAlert('test1', 'test2', 'test3', 'test4').then(() => {
+    const spy = spyOn(service, 'present');
+    service.presentAlert('test1', 'test2', 'test3', 'test4').then(() => {
       console.log(alertCtrlSpy);
       expect(spy).toHaveBeenCalled();
       done();
@@ -23,7 +23,7 @@ describe('AlertProvider', () => {
   });
 
   it('should populate alert', () => {
-    const alert = provider.populateAlert('test1', 'test2', 'test3', 'test4');
+    const alert = service.populateAlert('test1', 'test2', 'test3', 'test4');
     expect(alert.header).toBe('test1');
     expect(alert.subHeader).toBe('test2');
     expect(alert.message).toBe('test3');
@@ -31,8 +31,8 @@ describe('AlertProvider', () => {
   });
 
   it('should present confirmation alert', async() => {
-    const spy = spyOn(provider, 'present');
-    provider.presentConfirmation('test1', 'test2', 'test3').then(() => {
+    const spy = spyOn(service, 'present');
+    service.presentConfirmation('test1', 'test2', 'test3').then(() => {
       console.log(alertCtrlSpy);
       expect(spy).toHaveBeenCalled();
     });

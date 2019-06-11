@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PasswordValidator } from '../validators/password.validator';
-import { FormProvider } from '../providers/form/form';
+import { FormService } from '../providers/form/form.service';
 import { StringValidator } from '../validators/string.validator';
 
 @Component({
@@ -14,7 +14,7 @@ export class RegisterPage implements OnInit {
   public errors: any = [];
   public registerForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, public form: FormProvider) {
+  constructor(public formBuilder: FormBuilder, public form: FormService) {
   }
 
   ngOnInit() {

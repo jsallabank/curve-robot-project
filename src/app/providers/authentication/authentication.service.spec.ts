@@ -1,50 +1,50 @@
-import { AuthenticationProvider } from './authentication';
+import { AuthenticationService } from './authentication.service';
 
-describe('AuthenticationProvider', () => {
-  let provider: AuthenticationProvider;
+describe('AuthenticationService', () => {
+  let service: AuthenticationService;
   let storageSpy: { get: jasmine.Spy };
 
   beforeEach(() => {
     storageSpy = jasmine.createSpyObj('storage', ['get']);
-    provider = new AuthenticationProvider(storageSpy as any);
+    service = new AuthenticationService(storageSpy as any);
   });
 
   it('should create', () => {
-    expect(provider).toBeTruthy();
+    expect(service).toBeTruthy();
   });
 
   it('should get the token', () => {
-    provider.token = 'test';
-    const token = provider.getToken();
+    service.token = 'test';
+    const token = service.getToken();
     expect(token).toBe('test');
   });
 
   it('should return not authenticated', () => {
-    const isAuthenticated = provider.isAuthenticated();
+    const isAuthenticated = service.isAuthenticated();
     expect(isAuthenticated).toBeFalsy();
   });
 
   it('should return authenticated', () => {
-    provider.token = 'test';
-    const isAuthenticated = provider.isAuthenticated();
+    service.token = 'test';
+    const isAuthenticated = service.isAuthenticated();
     expect(isAuthenticated).toBeTruthy();
   });
 
   it('should set token to the provider', async() => {
     const token = 'ABC123';
-    provider.token = token;
+    service.token = token;
     storageSpy.get = jasmine.createSpy().and.returnValue(Promise.resolve(token));
-    provider.setToken().then((response) => {
+    service.setToken().then((response) => {
       expect(response).toBeTruthy();
-      expect(provider.token).toBe(token);
+      expect(service.token).toBe(token);
     });
   });
 
   it('should not set token to the provider', async() => {
     storageSpy.get = jasmine.createSpy().and.returnValue(Promise.resolve(null));
-    provider.setToken().then((response) => {
+    service.setToken().then((response) => {
       expect(response).toBeFalsy();
-      expect(provider.token).toBeNull();
+      expect(service.token).toBeNull();
     });
   });
 

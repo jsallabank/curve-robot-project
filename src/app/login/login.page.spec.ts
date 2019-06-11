@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginPage } from './login.page';
-import { FormProvider } from '../providers/form/form';
+import { FormService } from '../providers/form/form.service';
 import { IonicModule } from '@ionic/angular';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -15,7 +15,7 @@ describe('LoginPage', () => {
       declarations: [LoginPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
-        FormProvider
+        FormService
       ],
       imports: [
         FormsModule,

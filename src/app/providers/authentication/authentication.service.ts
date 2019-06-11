@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
 @Injectable()
-export class AuthenticationProvider {
+export class AuthenticationService {
 
   public token: string = null;
 
   constructor(public storage: Storage) {
-    console.log('Hello AuthenticationProvider Provider');
+    console.log('Hello AuthenticationService Provider');
   }
 
   public setToken(): Promise<boolean> {

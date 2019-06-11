@@ -1,9 +1,9 @@
-import { ConnectProvider } from './connect';
+import { ConnectService } from './connect.service';
 import { of } from 'rxjs';
 import { async } from '@angular/core/testing';
 
-describe('ConnectProvider', () => {
-  let provider: ConnectProvider;
+describe('ConnectService', () => {
+  let service: ConnectService;
   let httpSpy: {
     get: jasmine.Spy,
     post: jasmine.Spy,
@@ -15,16 +15,16 @@ describe('ConnectProvider', () => {
   beforeEach(() => {
     authSpy = jasmine.createSpyObj('auth', ['token']);
     httpSpy = jasmine.createSpyObj('http', ['get', 'post', 'put', 'delete']);
-    provider = new ConnectProvider(httpSpy as any, authSpy as any);
+    service = new ConnectService(httpSpy as any, authSpy as any);
   });
 
   it('should create', () => {
-    expect(provider).toBeTruthy();
+    expect(service).toBeTruthy();
   });
 
   it('should login user and return request', async(() => {
     httpSpy.post = jasmine.createSpy().and.returnValue(of('abcd'));
-    provider.getToken('user', 'password').subscribe(
+    service.getToken('user', 'password').subscribe(
             (request) => {
               expect(request).toBe('abcd');
             }
@@ -32,16 +32,16 @@ describe('ConnectProvider', () => {
   }));
 
   it('should set the header with the token', () => {
-    provider.auth.token = 'THIS_IS_A_TOKEN';
-    provider.setAuthenticatedHeader();
-    expect(provider.headers.get('Content-Type')).toBe('application/json');
-    expect(provider.headers.get('Accept')).toBe('application/json');
-    expect(provider.headers.get('Authorization')).toBe(`Bearer ${provider.auth.token}`);
+    service.auth.token = 'THIS_IS_A_TOKEN';
+    service.setAuthenticatedHeader();
+    expect(service.headers.get('Content-Type')).toBe('application/json');
+    expect(service.headers.get('Accept')).toBe('application/json');
+    expect(service.headers.get('Authorization')).toBe(`Bearer ${service.auth.token}`);
   });
 
   it('should list from api', async(() => {
     httpSpy.get = jasmine.createSpy().and.returnValue(of('abcd'));
-    provider.list('endpoint').subscribe(
+    service.list('endpoint').subscribe(
             (request) => {
               expect(request).toBe('abcd');
             }
@@ -50,7 +50,7 @@ describe('ConnectProvider', () => {
 
   it('should get from api', async(() => {
     httpSpy.get = jasmine.createSpy().and.returnValue(of('abcd'));
-    provider.get('endpoint', 'id').subscribe(
+    service.get('endpoint', 'id').subscribe(
             (request) => {
               expect(request).toBe('abcd');
             }
@@ -59,7 +59,7 @@ describe('ConnectProvider', () => {
 
   it('should get custom from api', async(() => {
     httpSpy.get = jasmine.createSpy().and.returnValue(of('abcd'));
-    provider.getCustom('endpoint').subscribe(
+    service.getCustom('endpoint').subscribe(
             (request) => {
               expect(request).toBe('abcd');
             }
@@ -68,7 +68,7 @@ describe('ConnectProvider', () => {
 
   it('should post data', async(() => {
     httpSpy.post = jasmine.createSpy().and.returnValue(of('abcd'));
-    provider.create('endpoint', 'data').subscribe(
+    service.create('endpoint', 'data').subscribe(
             (request) => {
               expect(request).toBe('abcd');
             }
@@ -77,7 +77,7 @@ describe('ConnectProvider', () => {
 
   it('should update data', async(() => {
     httpSpy.put = jasmine.createSpy().and.returnValue(of('abcd'));
-    provider.update('endpoint', 'id', 'data').subscribe(
+    service.update('endpoint', 'id', 'data').subscribe(
             (request) => {
               expect(request).toBe('abcd');
             }
@@ -86,7 +86,7 @@ describe('ConnectProvider', () => {
 
   it('should delete data', async(() => {
     httpSpy.delete = jasmine.createSpy().and.returnValue(of('abcd'));
-    provider.delete('endpoint', 'id').subscribe(
+    service.delete('endpoint', 'id').subscribe(
             (request) => {
               expect(request).toBe('abcd');
             }

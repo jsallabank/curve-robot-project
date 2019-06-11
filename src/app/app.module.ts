@@ -10,10 +10,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import * as Sentry from '@sentry/browser';
-import { AlertProvider } from './providers/alert/alert';
-import { AuthenticationProvider } from './providers/authentication/authentication';
-import { FormProvider } from './providers/form/form';
-import { ConnectProvider } from './providers/connect/connect';
+import { AlertService } from './providers/alert/alert.service';
+import { AuthenticationService } from './providers/authentication/authentication.service';
+import { FormService } from './providers/form/form.service';
+import { ConnectService } from './providers/connect/connect.service';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 
@@ -48,10 +48,10 @@ export class SentryErrorHandler implements ErrorHandler {
   ],
   providers: [
     { provide: ErrorHandler, useClass: isDevModeOn ? ErrorHandler : SentryErrorHandler },
-    AlertProvider,
-    AuthenticationProvider,
-    FormProvider,
-    ConnectProvider,
+    AlertService,
+    AuthenticationService,
+    FormService,
+    ConnectService,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

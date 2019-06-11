@@ -1,16 +1,16 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AuthenticationProvider } from '../authentication/authentication';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Injectable()
-export class ConnectProvider {
+export class ConnectService {
 
   public apiRoot = 'https://www.curvetomorrow.com.au/api/';
   public headers = new HttpHeaders();
   public token: string = null;
 
-  constructor(public http: HttpClient, public auth: AuthenticationProvider) {
-    console.log('Hello ConnectProvider');
+  constructor(public http: HttpClient, public auth: AuthenticationService) {
+    console.log('Hello ConnectService');
   }
 
   public getToken(email: string, password: string) {

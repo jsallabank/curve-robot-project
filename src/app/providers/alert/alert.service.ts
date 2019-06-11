@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 
 @Injectable()
-export class AlertProvider {
+export class AlertService {
 
   public cssClass = '';
 
   constructor(public alertCtrl: AlertController) {
-    console.log('Hello AlertProvider Provider');
+    console.log('Hello AlertService Provider');
   }
 
   public populateAlert(header: string, subHeader: string, message: string, button: string) {

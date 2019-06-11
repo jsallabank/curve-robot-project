@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FormProvider } from '../providers/form/form';
+import { FormService } from '../providers/form/form.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -12,7 +12,7 @@ export class ForgotPasswordPage implements OnInit {
   public errors: any = [];
   public forgotForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, public form: FormProvider) {
+  constructor(public formBuilder: FormBuilder, public form: FormService) {
   }
 
   ngOnInit() {

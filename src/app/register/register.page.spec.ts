@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormProvider } from '../providers/form/form';
+import { FormService } from '../providers/form/form.service';
 import { IonicModule } from '@ionic/angular';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -16,7 +16,7 @@ describe('RegisterPage', () => {
       declarations: [RegisterPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
-        FormProvider
+        FormService
       ],
       imports: [
         FormsModule,

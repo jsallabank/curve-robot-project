@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class FormProvider {
+export class FormService {
 
   public errors: any = [];
 
   constructor() {
-    console.log('Hello FormProvider Provider');
+    console.log('Hello FormService Provider');
   }
 
   public validate(controls) {

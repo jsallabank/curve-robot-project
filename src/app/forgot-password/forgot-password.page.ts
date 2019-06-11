@@ -12,7 +12,6 @@ export class ForgotPasswordPage implements OnInit {
   public errors: any = [];
   public forgotForm: FormGroup;
 
-
   constructor(public formBuilder: FormBuilder, public form: FormProvider) {
   }
 

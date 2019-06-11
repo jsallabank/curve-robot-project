@@ -61,4 +61,3 @@ export class ConnectProvider {
     return this.http.delete(`${this.apiRoot}${object}/${id}`, { headers: this.headers });
   }
 }
-

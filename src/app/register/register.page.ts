@@ -4,7 +4,6 @@ import { PasswordValidator } from '../validators/password.validator';
 import { FormProvider } from '../providers/form/form';
 import { StringValidator } from '../validators/string.validator';
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',

@@ -1,18 +1,19 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginPage } from './login.page';
-import { FormService } from '../providers/form/form.service';
+import { FormService } from '../../providers/form/form.service';
 import { IonicModule } from '@ionic/angular';
 import { RouterTestingModule } from '@angular/router/testing';
 
-describe('LoginPage', () => {
-  let component: LoginPage;
-  let fixture: ComponentFixture<LoginPage>;
+import { RegisterPage } from './register.page';
+
+describe('RegisterPage', () => {
+  let component: RegisterPage;
+  let fixture: ComponentFixture<RegisterPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LoginPage],
+      declarations: [RegisterPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         FormService
@@ -28,7 +29,7 @@ describe('LoginPage', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginPage);
+    fixture = TestBed.createComponent(RegisterPage);
     component = fixture.componentInstance;
     component.ngOnInit();
     fixture.detectChanges();
@@ -38,12 +39,12 @@ describe('LoginPage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should login', () => {
-    expect(component.login()).toBeTruthy();
+  it('should register', () => {
+    expect(component.register()).toBeTruthy();
   });
 
   it('should validate', () => {
     component.validate();
-    expect(component.errors.length).toBe(3);
+    expect(component.errors.length).toBe(5);
   });
 });

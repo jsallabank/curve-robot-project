@@ -4,8 +4,8 @@ This is a start project for ionic
 ## Ionic Documentation & Useful links
 
 * [Crash Course] (https://www.youtube.com/watch?v=r2ga-iXS5i4)
-* [Getting Started](https://ionicframework.com/getting-started#cli)
-* [Docs](https://ionicframework.com/docs)
+* [Getting Started] (https://ionicframework.com/getting-started#cli)
+* [Docs] (https://ionicframework.com/docs)
 * [UI components] (https://ionicframework.com/docs/components/)
 * [Native Plugins] (https://ionicframework.com/docs/native/overview)
 * [iOS setup] (https://ionicframework.com/docs/installation/ios)

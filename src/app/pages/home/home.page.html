@@ -6,16 +6,35 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content text-center>
-    <div class="vertical-center">
-        <div class="ion-padding-vertical">
-            This is an Ionic Boilerplate.
-        </div>
-        <div>
-            <ion-button color="primary" [routerLink]="['/login']" id="next-page-button">
-                <ion-icon slot="end" name="arrow-forward"></ion-icon>
-                Next Page
-            </ion-button>
-        </div>
-    </div>
+<ion-content fullscreen scroll-y="false">
+    <ion-slides pager="true" [options]="slideOpts" class="welcome-slides">
+        <ion-slide>
+            <div class="vertical-center" text-center>
+                <div>
+                    <ion-img src="./assets/hello.svg" class="welcome-icon"></ion-img>
+                </div>
+                <div>
+                    <h1>Hello</h1>
+                </div>
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="vertical-center" text-center>
+                <div>
+                    <ion-img src="./assets/hello.svg" class="welcome-icon"></ion-img>
+                </div>
+                <div>
+                    <h1>Bye</h1>
+                </div>
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="vertical-center animated flash">
+                <ion-button color="primary" [routerLink]="['/login']" id="next-page-button">
+                    <ion-icon slot="end" name="arrow-forward"></ion-icon>
+                    Next Page
+                </ion-button>
+            </div>
+        </ion-slide>
+    </ion-slides>
 </ion-content>

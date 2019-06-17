@@ -1,10 +1,18 @@
 # ionic-boilerplate
 This is a start project for ionic
 
-## Ionic Documentation
+## Ionic Documentation & Useful links
 
-* [Getting Started](https://ionicframework.com/getting-started#cli)
-* [Docs](https://ionicframework.com/docs)
+* [Crash Course] (https://www.youtube.com/watch?v=r2ga-iXS5i4)
+* [Getting Started] (https://ionicframework.com/getting-started#cli)
+* [Docs] (https://ionicframework.com/docs)
+* [UI components] (https://ionicframework.com/docs/components/)
+* [Native Plugins] (https://ionicframework.com/docs/native/overview)
+* [iOS setup] (https://ionicframework.com/docs/installation/ios)
+* [Android setup] (https://ionicframework.com/docs/installation/android)
+* [Testing with Ionic] (https://ionicframework.com/docs/building/testing)
+* [CSS utilities] (https://ionicframework.com/docs/layout/css-utilities)
+* [Theming your app] (https://ionicframework.com/docs/theming/basics)
 
 ## What do you need for the Environment?
 

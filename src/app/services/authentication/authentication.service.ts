@@ -7,7 +7,7 @@ export class AuthenticationService {
   public token: string = null;
 
   constructor(public storage: Storage) {
-    console.log('Hello AuthenticationService Provider');
+    console.log('Hello AuthenticationService Service');
   }
 
   public setToken(): Promise<boolean> {

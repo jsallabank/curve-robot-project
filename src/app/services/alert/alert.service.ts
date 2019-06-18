@@ -7,7 +7,7 @@ export class AlertService {
   public cssClass = '';
 
   constructor(public alertCtrl: AlertController) {
-    console.log('Hello AlertService Provider');
+    console.log('Hello AlertService Service');
   }
 
   public populateAlert(header: string, subHeader: string, message: string, button: string) {

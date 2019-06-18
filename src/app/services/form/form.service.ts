@@ -6,7 +6,7 @@ export class FormService {
   public errors: any = [];
 
   constructor() {
-    console.log('Hello FormService Provider');
+    console.log('Hello FormService Service');
   }
 
   public validate(controls) {

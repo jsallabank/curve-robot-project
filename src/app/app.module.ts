@@ -10,10 +10,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import * as Sentry from '@sentry/browser';
-import { AlertService } from './providers/alert/alert.service';
-import { AuthenticationService } from './providers/authentication/authentication.service';
-import { FormService } from './providers/form/form.service';
-import { ConnectService } from './providers/connect/connect.service';
+import { AlertService } from './services/alert/alert.service';
+import { AuthenticationService } from './services/authentication/authentication.service';
+import { FormService } from './services/form/form.service';
+import { ConnectService } from './services/connect/connect.service';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 

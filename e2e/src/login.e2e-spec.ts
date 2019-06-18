@@ -29,8 +29,11 @@ describe('LoginPage', () => {
   it('should navigate from home page to login page', () => {
     const home = new HomePage();
     home.load();
+    home.swipeSlide('slideOne');
+    home.swipeSlide('slideTwo');
     home.clickNextPage();
     login.waitUntilVisible();
     expect(login.rootElement().isDisplayed()).toEqual(true);
   });
+
 });

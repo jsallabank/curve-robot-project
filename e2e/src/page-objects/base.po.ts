@@ -49,6 +49,15 @@ export class PageObjectBase {
     return element(by.id(id));
   }
 
+  swipeSlide(id: string) {
+    const elementToSwipe = this.getElement(id);
+    browser.actions().dragAndDrop(
+        elementToSwipe,
+        { x:-300, y:0 }
+    ).perform();
+    browser.sleep(1000);
+  }
+
   clickBackButton() {
     const el = element(by.css(`${this.tag} ${'ion-back-button'}`));
     browser.wait(ExpectedConditions.elementToBeClickable(el));

@@ -17,6 +17,8 @@ describe('HomePage', () => {
   });
 
   it('should go to Login Page', () => {
+    home.swipeSlide('slideOne');
+    home.swipeSlide('slideTwo');
     home.clickNextPage();
     login.waitUntilVisible();
     expect(login.rootElement().isDisplayed()).toEqual(true);

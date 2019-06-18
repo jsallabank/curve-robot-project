@@ -8,7 +8,7 @@
 
 <ion-content fullscreen scroll-y="false">
     <ion-slides pager="true" [options]="slideOpts" class="welcome-slides">
-        <ion-slide>
+        <ion-slide id="slideOne">
             <div class="vertical-center" text-center>
                 <div>
                     <ion-img src="./assets/hello.svg" class="welcome-icon"></ion-img>
@@ -18,7 +18,7 @@
                 </div>
             </div>
         </ion-slide>
-        <ion-slide>
+        <ion-slide id="slideTwo">
             <div class="vertical-center" text-center>
                 <div>
                     <ion-img src="./assets/hello.svg" class="welcome-icon"></ion-img>
@@ -28,7 +28,7 @@
                 </div>
             </div>
         </ion-slide>
-        <ion-slide>
+        <ion-slide id="slideThree">
             <div class="vertical-center animated flash">
                 <ion-button color="primary" [routerLink]="['/login']" id="next-page-button">
                     <ion-icon slot="end" name="arrow-forward"></ion-icon>

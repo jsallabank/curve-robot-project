@@ -14,6 +14,7 @@ export class PageObjectBase {
   }
 
   loadWithParams(from: string) {
+    console.log(this.path + from);
     return browser.get(this.path + from);
   }
 

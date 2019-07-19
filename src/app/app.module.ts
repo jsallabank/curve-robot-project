@@ -1,12 +1,19 @@
 import { NgModule, Injectable, ErrorHandler, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+
 import * as Sentry from '@sentry/browser';
+import { AlertService } from './services/alert/alert.service';
+import { AuthenticationService } from './services/authentication/authentication.service';
+import { FormService } from './services/form/form.service';
+import { ConnectService } from './services/connect/connect.service';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 
@@ -41,6 +48,10 @@ export class SentryErrorHandler implements ErrorHandler {
   ],
   providers: [
     { provide: ErrorHandler, useClass: isDevModeOn ? ErrorHandler : SentryErrorHandler },
+    AlertService,
+    AuthenticationService,
+    FormService,
+    ConnectService,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

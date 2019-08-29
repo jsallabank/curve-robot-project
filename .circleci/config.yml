@@ -8,11 +8,11 @@ defaults: &defaults
   docker:
     - image: circleci/node:9.9.0-stretch-browsers
 jobs:
-  build: 
+  build:
     <<: *defaults
     steps:
       - run:
-          name:  Download cc-test-reporter
+          name: Download cc-test-reporter
           command: |
             mkdir -p tmp/
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
@@ -31,30 +31,32 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
 
       - run: npm install
 
-      - run: npm rebuild node-sass 
+      - run: npm rebuild node-sass
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: 
-            name: Run lint
-            command: |
-              npm run lint
-      - run: 
+      - run:
+          name: Run lint
+          command: |
+            npm run lint
+      - run:
           name: Run tests
           command: |
             npm test
-           
+
       - run: ls coverage
       - run: ls /home/circleci/repo
       - run: ./tmp/cc-test-reporter format-coverage --debug -t lcov -o tmp/codeclimate.json /home/circleci/repo/coverage/lcov.info
+      - store_artifacts:
+          path: /home/circleci/repo/coverage
       - run: npm run coverage
       - run: #STABLE
           name: Install Chromedriver latest version
@@ -68,17 +70,17 @@ jobs:
       - run: npm run e2e --protractorConfig=protractor-ci.conf.js
       - persist_to_workspace:
           root: tmp
-          paths: 
+          paths:
             - codeclimate.json
 
   upload-coverage:
     <<: *defaults
-    environment: 
+    environment:
       - CC_TEST_REPORTER_ID: 931b61c76af0738b2c137b865d0fa836ce671c9427569e0e2926f8fa16cc91e3
     steps:
       - attach_workspace:
           at: ~/repo/tmp
-  
+
       - run:
           name: Upload coverage results to Code Climate
           command: |
@@ -91,9 +93,9 @@ workflows:
   commit:
     jobs:
       - build
-      - frontend-tests: 
-          requires: 
-             - build
+      - frontend-tests:
+          requires:
+            - build
       - upload-coverage:
           requires:
-             - frontend-tests
+            - frontend-tests

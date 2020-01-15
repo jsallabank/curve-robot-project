@@ -1,40 +1,24 @@
 <ion-header>
     <ion-toolbar>
         <ion-title text-center>
-            Welcome
+            Robot Game
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen scroll-y="false">
-    <ion-slides pager="true" [options]="slideOpts" class="welcome-slides">
-        <ion-slide id="slideOne">
-            <div class="vertical-center" text-center>
-                <div>
-                    <ion-img src="./assets/hello.svg" class="welcome-icon"></ion-img>
-                </div>
-                <div>
-                    <h1>Hello</h1>
-                </div>
-            </div>
-        </ion-slide>
-        <ion-slide id="slideTwo">
-            <div class="vertical-center" text-center>
-                <div>
-                    <ion-img src="./assets/hello.svg" class="welcome-icon"></ion-img>
-                </div>
-                <div>
-                    <h1>Bye</h1>
-                </div>
-            </div>
-        </ion-slide>
-        <ion-slide id="slideThree">
-            <div class="vertical-center animated flash">
-                <ion-button color="primary" [routerLink]="['/login']" id="next-page-button">
-                    <ion-icon slot="end" name="arrow-forward"></ion-icon>
-                    Next Page
-                </ion-button>
-            </div>
-        </ion-slide>
-    </ion-slides>
+        <div>
+            <ion-input placeholder="Enter Command" [(ngModel)]="inputValue"></ion-input>
+            <ion-button (click)="robotBrain()"> Execute Command</ion-button>        
+        </div>
+        <p>  {{locationText}} </p>
+
+        <P><br><br>AVAILABLE COMMANDS: <br>
+           - PLACE X,Y,DIRECTION (NORTH,SOUTH,EAST,WEST) <br>
+           - MOVE <br>
+           - RIGHT <br>
+           - LEFT <br>
+           - REPORT
+        </P>
+            
 </ion-content>

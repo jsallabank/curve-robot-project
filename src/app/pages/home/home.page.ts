@@ -15,6 +15,10 @@ export class HomePage {
   place = false;
   inputValue: string = "";
   directions = ["NORTH","EAST","SOUTH","WEST"];
+  prevX;
+  prevY;
+  drawn = false;
+  rotateAngle;
   
   //Each core command is broken down into sub function
 
@@ -24,6 +28,20 @@ export class HomePage {
     this.currentX = Number(this.inputValue.substring(6,7));
     this.currentY = Number(this.inputValue.substring(8,9));
     this.place = true;
+  }
+  //draws robot onto screen
+  drawRobot(){
+    //first clear board if not first draw
+    if (this.drawn === true){
+      document.getElementById(""+this.prevY+this.prevX).innerHTML = '';
+    }
+    if (this.currentDir === "NORTH"){this.rotateAngle = 0;}
+    else if (this.currentDir === "SOUTH"){this.rotateAngle = 180;}
+    else if (this.currentDir === "WEST"){this.rotateAngle = 270;}
+    else {this.rotateAngle = 90;}
+    //now draw
+    document.getElementById(""+this.currentY+this.currentX).innerHTML = '<ion-img src="./assets/car.png" style="transform: rotate('+ this.rotateAngle +'deg);"' + '></ion-img>';
+  this.drawn = true;
   }
 
   //report reports the current coordinates of the robot
@@ -85,7 +103,6 @@ export class HomePage {
         {
           this.currentDir = this.directions[i-1];
           i = 4;
-          console.log("moved left")
         }
       }
        
@@ -112,7 +129,7 @@ export class HomePage {
     {
       this.currentX -= 1;
     }
-    else{console.log("direction error")}
+    else{console.log("direction error " + this.currentDir)}
   }
 
   //robotbrain decides what subfunction to call and is 
@@ -168,8 +185,44 @@ export class HomePage {
       this.locationText = "please enter valid command";
     }
     this.inputValue = "";
+    if(this.place === true){
+      this.drawRobot()
+    }
+    
+  
+    
+    this.prevX = this.currentX;
+    this.prevY = this.currentY;
   }
-  constructor() {}
+
+  moveKey() {
+      this.inputValue = "MOVE";
+      this.robotBrain();
+    
+  }
+  rightKey() {
+    this.inputValue = "RIGHT";
+    this.robotBrain();
+  
+}
+leftKey() {
+  this.inputValue = "LEFT";
+  this.robotBrain();
 
 }
+reportKey() {
+  this.inputValue = "REPORT";
+  this.robotBrain();
+}
+placeRandomKey() {
+  let myRandx = Math.floor(Math.random() * Math.floor(5));
+  let myRandy = Math.floor(Math.random() * Math.floor(5));
+  let index = Math.floor(Math.random() * Math.floor(4))
+  let myRandDir = this.directions[index];
+  this.inputValue = "PLACE " + myRandx + "," + myRandy + "," + myRandDir;
+  this.robotBrain();
 
+}
+  constructor() {}
+  
+}

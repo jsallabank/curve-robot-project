@@ -40,7 +40,7 @@ export class HomePage {
     else if (this.currentDir === "WEST"){this.rotateAngle = 270;}
     else {this.rotateAngle = 90;}
     //now draw
-    document.getElementById(""+this.currentY+this.currentX).innerHTML = '<ion-img src="./assets/car.png" style="transform: rotate('+ this.rotateAngle +'deg);"' + '></ion-img>';
+    document.getElementById(""+this.currentY+this.currentX).innerHTML = '<ion-img id="imageID" src="./assets/car.png" style="transform: rotate('+ this.rotateAngle +'deg);"' + '></ion-img>';
   this.drawn = true;
   }
 

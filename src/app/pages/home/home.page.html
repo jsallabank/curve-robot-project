@@ -8,8 +8,8 @@
 
 <ion-content fullscreen scroll-y="false">
         <div>
-            <ion-input placeholder="Enter Command" [(ngModel)]="inputValue"></ion-input>
-            <ion-button (click)="robotBrain()"> Execute Command</ion-button>        
+            <ion-input id="commandInputID" placeholder="Enter Command" [(ngModel)]="inputValue"></ion-input>
+            <ion-button id='executeKey' (click)="robotBrain()"> Execute Command</ion-button>        
         </div>
         <p id="output">  {{locationText}} </p>
 
@@ -47,17 +47,9 @@
             </ion-row>
           </ion-grid>
         </div>
-        
-        <P><br><br>AVAILABLE COMMANDS: <br>
-           - PLACE X,Y,DIRECTION (NORTH,SOUTH,EAST,WEST) <br>
-           - MOVE <br>
-           - RIGHT <br>
-           - LEFT <br>
-           - REPORT
-        </P>
           
         
-        <ion-grid class="grid">
+        <ion-grid id="boardID" class="grid">
                 <ion-row >
                   <ion-col size="1" class = "lightgrid" >
                     <div id = "40">

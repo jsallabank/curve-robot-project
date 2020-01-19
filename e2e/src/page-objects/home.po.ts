@@ -19,5 +19,9 @@ export class HomePage extends PageObjectBase {
   clickReportKey() {
     this.clickButtonById('reportKey');
   }
+  enterPlaceCommand(text: string) {
+    this.enterInputTextById('commandInputID', text);
+    this.clickButtonById('executeKey');
+  }
 }
 

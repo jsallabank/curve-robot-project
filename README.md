@@ -1,18 +1,16 @@
-# ionic-boilerplate
-This is a start project for ionic
+# curve robot challenge
 
-## Ionic Documentation & Useful links
+This is an attempt at the Curve Robot Challenge to which a robot is meant to avoid falling off a table/board of size 5x5 (Coordinates 0-4x0-4). 
 
-* [Crash Course] (https://www.youtube.com/watch?v=r2ga-iXS5i4)
-* [Getting Started] (https://ionicframework.com/getting-started#cli)
-* [Docs] (https://ionicframework.com/docs)
-* [UI components] (https://ionicframework.com/docs/components/)
-* [Native Plugins] (https://ionicframework.com/docs/native/overview)
-* [iOS setup] (https://ionicframework.com/docs/installation/ios)
-* [Android setup] (https://ionicframework.com/docs/installation/android)
-* [Testing with Ionic] (https://ionicframework.com/docs/building/testing)
-* [CSS utilities] (https://ionicframework.com/docs/layout/css-utilities)
-* [Theming your app] (https://ionicframework.com/docs/theming/basics)
+The robot accepts written commands as well as using built in buttons.
+
+Commands:
+RIGHT - turns right
+LEFT - turns left
+MOVE - moves forward one space in direction robot is facing
+PLACE x(e.g. 0),y,direction(e.g. NORTH)
+REPORT - displays robots current coordinates
+
 
 ## What do you need for the Environment?
 
@@ -31,12 +29,3 @@ This is a start project for ionic
 * `npm run e2e`: To run end to end test
 * `npm run coverage`: To find out coverage of the unit test
 
-## Before start building
-
-* Rename name in ionic.config.json
-* Edit the Sentry DSN in src\app\app.module.ts
-
-## Addding the Android/iOS
-
-* ionic platform add ios
-* ionic platform add android
